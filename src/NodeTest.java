@@ -96,7 +96,6 @@ class NodeTest {
   void testForNodeWithNoNextOrPrev() {
     // arrange
     Node node = new Node(24);
-    Node head = node;
 
     // act 
     List<Integer> result = node.toList();
@@ -104,8 +103,23 @@ class NodeTest {
     // assert
     assertEquals(1, result.size());
     assertEquals(24, result.get(0)); 
-    assertEquals(null, head.prev);
-    assertEquals(null, head.next);
+    assertEquals(null, node.prev);
+    assertEquals(null, node.next);
   }
   // TODO: Add at least one more test for list constructor that would be useful and cover new ground.
+  @Test 
+  void testToListFromTailNode() {
+    // arrange
+    List<Integer> values = List.of(5, 7, 3);
+
+    Node head = new Node(values);
+    Node tail = head.next.next;
+
+    // act 
+    List<Integer> result = tail.toList();
+
+    assertEquals(1, result.size());
+    assertEquals(3, result.get(0));
+
+  }
 }
