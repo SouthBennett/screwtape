@@ -39,6 +39,25 @@ public class Node {
    */
   public Node(List<Integer> list) {
     // TODO: implement this
+    if (list == null || list.isEmpty()) {
+      throw new IllegalArgumentException("List cannot be empty or null");
+    }
+
+    value = list.get(0);
+    Node current = this;
+
+    int index = 1;
+
+    while (index < list.size()) {
+      Node newNode = new Node(list.get(index));
+
+      current.next = newNode; //set current.next to point to new node
+      newNode.prev = current; //set newNode's previous to point to current
+
+      current = newNode; //move current forward;
+      index++; //move index counter forward.
+    }
+
   }
 
   /**

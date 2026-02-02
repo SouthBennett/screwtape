@@ -41,9 +41,33 @@ class NodeTest {
     );
   }
 
-  
   // TODO: Add test for list constructor when passed null list
+  @Test
+  void testListConstructorWithNullList() {
+    // No arrange because there is no test data. null is passed directly to the constructor
+
+    //act and assert
+    assertThrows(
+      IllegalArgumentException.class,
+      () -> new Node((List<Integer>) null),
+      "Expected constructor to throw IllegalArgumentException for a null list."
+    );
+  }
+
   // TODO: Add at least one more test for list constructor that would be useful and cover new ground.
+  @Test
+  void testListConstructorWithSingleValue() {
+    // arrange
+    List<Integer> singleValue = List.of(23);
+
+    // act
+    Node head = new Node(singleValue);
+
+    // assert 
+    assertEquals(23, head.value);
+    assertEquals(null, head.next); // if there is only a single node then head.next should be null
+    assertEquals(null, head.prev); // if there is only a single node then head.prev should be null
+  }
 
 
   // -------- WAVE 2 -------
