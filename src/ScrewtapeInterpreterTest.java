@@ -24,6 +24,25 @@ class ScrewtapeInterpreterTest {
   }
 
   // TODO: Implement more tests for bracketMap
+  @Test
+  void testUnmatchedClosingBracket() {
+    // arrange
+    ScrewtapeInterpreter interpreter = new ScrewtapeInterpreter();
+    String program = "+]";
+
+    // act and assert
+    assertThrows(IllegalArgumentException.class, () -> interpreter.bracketMap(program));
+  }
+
+  @Test
+  void testUnmatchedOpeningBracket() {
+    // arrange
+    ScrewtapeInterpreter interpreter = new ScrewtapeInterpreter();
+    String program = "[+";
+
+    // act and assert
+    assertThrows(IllegalArgumentException.class, () -> interpreter.bracketMap(program));
+  }
   // At a bare minimum, implement the other examples from the Javadoc and at least one more you come up with
 
   

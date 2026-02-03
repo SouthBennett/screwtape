@@ -118,8 +118,8 @@ class NodeTest {
     // act 
     List<Integer> result = tail.toList();
 
+    // assert
     assertEquals(1, result.size());
     assertEquals(3, result.get(0));
-
   }
 }
