@@ -43,10 +43,8 @@ class ScrewtapeInterpreterTest {
     // act and assert
     assertThrows(IllegalArgumentException.class, () -> interpreter.bracketMap(program));
   }
-  // At a bare minimum, implement the other examples from the Javadoc and at least one more you come up with
-
   
-
+  // At a bare minimum, implement the other examples from the Javadoc and at least one more you come up with
   @Test
   void testAdd() {
     // Arrange

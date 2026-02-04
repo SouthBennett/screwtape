@@ -152,6 +152,36 @@ public class ScrewtapeInterpreter {
   public String execute(String program) {
     // TODO: Implement this
     // If you get stuck, you can look at hint.md for a hint
-    return null;
+    int instructionPointer = 0;
+    String outputString = "";
+
+    while (instructionPointer < program.length()) {
+      char current = program.charAt(instructionPointer);
+      if (current == '+') {
+        tapePointer.value++;
+      } else if (current == '-') {
+        tapePointer.value--;
+      } else if (current == '>') {
+        if (tapePointer.next != null) {
+          tapePointer = tapePointer.next;
+        } else {
+          Node newNode = new Node(0);
+          tapePointer.next = newNode;
+          newNode.prev = tapePointer;
+          tapePointer = tapePointer.next;
+        } 
+      } else if (current == '<') {
+        if (tapePointer.prev != null) {
+          tapePointer = tapePointer.prev;
+        } else {
+          Node newNode = new Node(0);
+          tapePointer.prev = newNode;
+          newNode.next = tapePointer;
+          tapePointer = tapePointer.prev;
+        }
+      }
+      instructionPointer++;
+    }
+    return outputString;
   }
 }
