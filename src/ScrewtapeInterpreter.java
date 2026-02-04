@@ -178,6 +178,7 @@ public class ScrewtapeInterpreter {
           tapePointer.prev = newNode;
           newNode.next = tapePointer;
           tapePointer = tapePointer.prev;
+          tapeHead = newNode;
         }
       }
       instructionPointer++;
