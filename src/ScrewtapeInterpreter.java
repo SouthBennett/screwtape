@@ -152,6 +152,8 @@ public class ScrewtapeInterpreter {
   public String execute(String program) {
     // TODO: Implement this
     // If you get stuck, you can look at hint.md for a hint
+    Map<Integer, Integer> closeBracket = bracketMap(program);
+
     int instructionPointer = 0;
     String outputString = "";
 
@@ -186,8 +188,8 @@ public class ScrewtapeInterpreter {
       } else if (current == ']') {
         if (tapePointer.value == 0) {
           tapePointer = tapePointer.next;
-        } else if (tapePointer.value != 0) {
-          
+        } else {
+          tapePointer = closeBracket;
         }
       }
       instructionPointer++;
