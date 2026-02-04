@@ -186,10 +186,9 @@ public class ScrewtapeInterpreter {
         char currentChar = (char) tapePointer.value;
         outputString += currentChar;
       } else if (current == ']') {
-        if (tapePointer.value == 0) {
-          tapePointer = tapePointer.next;
-        } else {
-          tapePointer = closeBracket;
+        if (tapePointer.value != 0) {
+          int openBracketIndex = closeBracket.get(instructionPointer);
+          instructionPointer = openBracketIndex;
         }
       }
       instructionPointer++;
