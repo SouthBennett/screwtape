@@ -181,7 +181,8 @@ public class ScrewtapeInterpreter {
           tapeHead = newNode;
         }
       } else if (current == '.') {
-        char currentChar = tapePointer.value(current);
+        char currentChar = (char) tapePointer.value;
+        outputString += currentChar;
       }
       instructionPointer++;
     }
