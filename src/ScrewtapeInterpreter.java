@@ -183,6 +183,12 @@ public class ScrewtapeInterpreter {
       } else if (current == '.') {
         char currentChar = (char) tapePointer.value;
         outputString += currentChar;
+      } else if (current == ']') {
+        if (tapePointer.value == 0) {
+          tapePointer = tapePointer.next;
+        } else if (tapePointer.value != 0) {
+          
+        }
       }
       instructionPointer++;
     }
