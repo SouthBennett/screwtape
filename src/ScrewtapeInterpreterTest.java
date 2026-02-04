@@ -208,4 +208,15 @@ class ScrewtapeInterpreterTest {
 
     assertEquals("i", result);
   }
+
+  @Test
+  void testSingleElementList() {
+    // arrange
+    Node head = new Node(List.of(23));
+
+    // act and assert
+    assertEquals(23, head.value);
+    assertEquals(head.next, null);
+    assertEquals(head.prev, null);
+  }  
 }
